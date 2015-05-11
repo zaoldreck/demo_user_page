@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DemoUserPage</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <%= link_to "All Users", user_index_path, class: "navbar-brand" %>
+        <%= link_to "New Users", new_user_path, class: "navbar-brand" %>
+      </div>
+    </div>
+  </nav>
+  <% flash.each do |name, msg| -%>
+    <% if name=='error' %>
+      <div class="alert alert-danger row" role="alert">
+        <%= content_tag :div, msg, class: "#{name} col-sm-12 text-center" %>
+      </div>
+    <% elsif name=='notice' %>
+      <div class="alert alert-success row" role="alert">
+        <%= content_tag :div, msg, class: "#{name} col-sm-12 text-center" %>
+      </div>
+    <% end %>
+    <% end -%>
+  <%= yield %>
+</body>
+</html>

@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: zaoldreck
+
+development:
+  <<: *default
+  database: demo_user_page_development
+
+test:
+  <<: *default
+  database: demo_user_page_test
+
+production:
+  <<: *default
+  database: demo_user_page_production
+  username: demo_user_page
+  password: <%= ENV['DEMO_USER_PAGE_DATABASE_PASSWORD'] %>

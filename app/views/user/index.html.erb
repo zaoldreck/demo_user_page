@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Listing Users</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Firstname</th>
+        <th>Email</th>
+        <th>Details</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.email %></td>
+          <td>
+            <%= link_to "View", user_path(user), class: "glyphicon glyphicon-inbox btn btn-sm btn-info" %>
+          </td>
+          <td>
+            <%= link_to "Delete", user_path(user), class: "glyphicon glyphicon-remove btn btn-sm btn-danger", method: :delete, data: { confirm: "Do you want delete #{user.email}?"} %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
