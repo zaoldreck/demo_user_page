@@ -6,13 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= controller_name %>-<%= action_name %> <%= params[:id].present? ? params[:id] : nil %>'">
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
         <%= link_to "All Users", user_index_path, class: "navbar-brand" %>
-        <%= link_to "New Users", new_user_path, class: "navbar-brand" %>
-      </div>
     </div>
   </nav>
   <% flash.each do |name, msg| -%>

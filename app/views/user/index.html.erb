@@ -1,8 +1,14 @@
 <div class="container">
-  <h2>Listing Users</h2>
+  <div class="col-sm-12">
+    <h2>Listing Users</h2>
+    <div class="pull-right" style="margin-top: -40px">
+      <%= link_to "New Users", new_user_path, class: "btn btn-primary" %>
+    </div>
+  </div>
   <table class="table table-striped">
     <thead>
       <tr>
+        <th>#</th>
         <th>Firstname</th>
         <th>Email</th>
         <th>Details</th>
@@ -10,8 +16,9 @@
       </tr>
     </thead>
     <tbody>
-      <% @users.each do |user| %>
+      <% @users.each_with_index do |user , index| %>
         <tr>
+          <th><%= index+1 %></th>
           <td><%= user.first_name %></td>
           <td><%= user.email %></td>
           <td>
@@ -24,4 +31,8 @@
       <% end %>
     </tbody>
   </table>
+  <div class="text-center col-sm-12">
+    <%= paginate @users %>
+  </div>
+
 </div>

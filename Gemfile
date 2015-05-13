@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 ruby '2.2.0'
 
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
+
 #Bootstrap
 gem 'bootstrap-sass', '~> 3.3.1'
 gem 'sass-rails', '>= 3.2'

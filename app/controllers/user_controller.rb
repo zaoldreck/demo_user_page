@@ -3,7 +3,7 @@ class UserController < ApplicationController
   before_action :find_user, only: [:show, :destroy, :update]
 
   def index
-    @users = User.all
+    @users = User.all.sort.page params[:page]
   end
 
   def new
