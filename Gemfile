@@ -3,6 +3,7 @@ ruby '2.2.0'
 
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
+gem 'carrierwave'
 
 #Bootstrap
 gem 'bootstrap-sass', '~> 3.3.1'

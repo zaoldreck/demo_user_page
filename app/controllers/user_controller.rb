@@ -3,7 +3,15 @@ class UserController < ApplicationController
   before_action :find_user, only: [:show, :destroy, :update]
 
   def index
-    @users = User.all.sort.page params[:page]
+    if params[:query]
+      @users = User.where("first_name like '%#{params[:query]}%' or
+                          last_name like '%#{params[:query]}%' or
+                          email like '%#{params[:query]}%' or
+                          phone like '%#{params[:query]}%'
+                          ").sort.page params[:page]
+    else
+      @users = User.all.sort.page params[:page]
+   end
   end
 
   def new

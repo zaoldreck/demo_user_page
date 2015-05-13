@@ -2,6 +2,7 @@
   <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">
+    <%= res? %>
     <%= @user.email %>
     <div class="pull-right" style="margin-top: -5px">
       <%= link_to "", user_path(@user), class: "glyphicon glyphicon-remove btn btn-sm btn-danger", method: :delete, data: { confirm: "Do you want delete #{@user.email}?"} %>
